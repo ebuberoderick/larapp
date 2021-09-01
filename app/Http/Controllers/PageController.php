@@ -35,4 +35,10 @@ class PageController extends Controller
         // $cat = DB::select("SELECT * FROM categories ORDER BY category ASC");
         return view('pages.mng_category', ['category' => $cat]);
     }
+
+    public function view_post($id)
+    {
+        $post = Post::find($id);
+        return $post;
+    }
 }

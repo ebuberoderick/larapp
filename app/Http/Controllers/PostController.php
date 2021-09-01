@@ -33,4 +33,5 @@ class PostController extends Controller
             return redirect()->back()->with('error', 'Post could not be saved!');
         }
     }
+
 }

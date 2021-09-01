@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('cover_image')->nullable()->default('default.png');
             $table->enum('status', ['unpublished', 'published'])->default('unpublished');
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('sn')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

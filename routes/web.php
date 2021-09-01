@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('posts')->group(function () {
         Route::post('/add-category', [PostController::class, 'add_category']);
         Route::post('/add-post', [PostController::class, 'add_post'])->name('add_post');
+        Route::get('/read-post/{post_id}', [PageController::class, 'view_post'])->name('view_post');
     });
 });
 

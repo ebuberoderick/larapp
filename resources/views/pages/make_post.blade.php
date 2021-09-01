@@ -22,7 +22,7 @@
                     <select name="category_id" class="block h-8 rounded w-1/2" required>
                         <option value="" class="px-3 py-1" disabled selected>Select Category</option>
                         @foreach ($category as $cat)
-                            <option value="{{  $cat->id }}" class="px-3 py-1">{{  $cat->category }}</option>
+                            <option value="{{  $cat->sn }}" class="px-3 py-1">{{  $cat->category }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -47,12 +47,13 @@
             <ul class="divide-y divide-gray-600">
                 @foreach ($posts as $post)
                     <li class="px-3 py-1 bg-white bg-opacity-25">
-                        <a href="#">
+                        <a href="{{ url('/posts/read-post/' . $post->id) }}">
                             <h2 class="font-bold text-xl">
                                 {{ $post->title }}
                             </h2>
                             <small>
-                                <i> Author: {{ $post->author_id }}</i>
+                                <span>{{ $post->category->category }}</span> <br>
+                                <i> Author: {{ $post->author->name }}</i>
                             </small>
                         </a>
                     </li>
